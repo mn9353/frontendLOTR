@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 
 export const WraithOverlay = ({ active }: { active: boolean }) => {

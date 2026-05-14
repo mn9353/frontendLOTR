@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
 import { Preloader } from './components/Preloader';
 import { ScrollForm } from './components/ScrollForm';
 import { WraithOverlay } from './components/WraithOverlay';

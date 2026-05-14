@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import { Suspense, useRef, useState } from 'react';
 import { Canvas, useFrame, useLoader } from '@react-three/fiber';
 import { Sphere, MeshDistortMaterial, Environment, Sparkles } from '@react-three/drei';
 import * as THREE from 'three';
@@ -123,7 +123,7 @@ export const PalantirProjectViewer = () => {
       {/* The Palantír WebGL Viewer */}
       <div className="w-full lg:w-1/2 h-[500px] relative">
         <div className="absolute inset-0 z-0">
-          <React.Suspense fallback={
+          <Suspense fallback={
             <div className="w-full h-full flex items-center justify-center font-display-lg text-primary animate-pulse">
               Gazing into the Palantír...
             </div>
@@ -135,7 +135,7 @@ export const PalantirProjectViewer = () => {
               <PalantirSphere activeImage={currentImage} />
               <Environment preset="night" />
             </Canvas>
-          </React.Suspense>
+          </Suspense>
         </div>
         
         {/* Pedestal graphic or base */}
