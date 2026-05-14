@@ -76,29 +76,29 @@ function App() {
         <div className="absolute inset-0 bg-gradient-to-b from-surface-dim via-transparent to-surface-dim"></div>
       </div>
 
-      <header className="fixed top-0 left-0 w-full z-[100] px-4 sm:px-margin-desktop py-4 sm:py-8 backdrop-blur-md bg-surface-dim/40 border-b border-mithril/10">
+      <header className="fixed top-0 left-0 w-full z-[100] px-4 sm:px-margin-desktop py-3 md:py-4 backdrop-blur-md bg-surface-dim/40 border-b border-mithril/10">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <div className="font-display-lg text-primary text-xl sm:text-2xl tracking-[0.2em] sm:tracking-[0.3em] drop-shadow-[0_0_10px_rgba(242,202,80,0.3)]">
+          <div className="font-display-lg text-primary text-lg md:text-xl tracking-[0.2em] sm:tracking-[0.3em] drop-shadow-[0_0_10px_rgba(242,202,80,0.3)]">
             MANOJ N.
           </div>
           
-          <div className="flex items-center gap-4 sm:gap-8">
+          <div className="flex items-center gap-4 sm:gap-6">
             <div className="group relative">
-              <button className="menu-trigger relative w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center transition-all duration-500">
+              <button className="menu-trigger relative w-8 h-8 md:w-10 md:h-10 flex items-center justify-center transition-all duration-500">
                 <img alt="Menu" className="ring-image w-full h-full object-contain transition-all duration-700 ease-out group-hover:scale-110 group-hover:drop-shadow-[0_0_20px_#f2ca50] mix-blend-screen invert brightness-125" src="/the_one_ring_hd_top.png"/>
               </button>
-              <div className="menu-content absolute top-full right-0 mt-2 sm:mt-4 w-56 sm:w-64 bg-surface-container-highest/95 backdrop-blur-xl border border-primary/30 p-6 sm:p-8 shadow-[0_0_50px_rgba(0,0,0,0.5)] opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto z-[100] transition-all duration-300">
-                <div className="flex flex-col gap-4 sm:gap-6 relative z-[110] pointer-events-auto">
-                  <a className="font-display-lg text-lg sm:text-xl tracking-widest transition-all hover:text-mithril hover:translate-x-2 block cursor-pointer" href="#journey" onClick={playClick}>JOURNEY</a>
-                  <a className="font-display-lg text-lg sm:text-xl tracking-widest transition-all hover:text-mithril hover:translate-x-2 block cursor-pointer" href="#battles" onClick={playClick}>BATTLES</a>
-                  <a className="font-display-lg text-lg sm:text-xl tracking-widest transition-all hover:text-mithril hover:translate-x-2 block cursor-pointer" href="#artifacts" onClick={playClick}>ARTIFACTS</a>
-                  <a className="font-display-lg text-lg sm:text-xl tracking-widest transition-all hover:text-mithril hover:translate-x-2 block cursor-pointer" href="#arsenal" onClick={playClick}>ARSENAL</a>
-                  <a className="font-display-lg text-lg sm:text-xl tracking-widest transition-all hover:text-mithril hover:translate-x-2 block cursor-pointer" href="#scrolls" onClick={playClick}>SCROLLS</a>
+              <div className="menu-content absolute top-full right-0 mt-2 sm:mt-4 w-56 sm:w-64 bg-surface-container-highest/95 backdrop-blur-xl border border-primary/30 p-6 shadow-[0_0_50px_rgba(0,0,0,0.5)] opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto z-[100] transition-all duration-300">
+                <div className="flex flex-col gap-4 relative z-[110] pointer-events-auto">
+                  <a className="font-display-lg text-base md:text-lg tracking-widest transition-all hover:text-mithril hover:translate-x-2 block cursor-pointer" href="#journey" onClick={playClick}>JOURNEY</a>
+                  <a className="font-display-lg text-base md:text-lg tracking-widest transition-all hover:text-mithril hover:translate-x-2 block cursor-pointer" href="#battles" onClick={playClick}>BATTLES</a>
+                  <a className="font-display-lg text-base md:text-lg tracking-widest transition-all hover:text-mithril hover:translate-x-2 block cursor-pointer" href="#artifacts" onClick={playClick}>ARTIFACTS</a>
+                  <a className="font-display-lg text-base md:text-lg tracking-widest transition-all hover:text-mithril hover:translate-x-2 block cursor-pointer" href="#arsenal" onClick={playClick}>ARSENAL</a>
+                  <a className="font-display-lg text-base md:text-lg tracking-widest transition-all hover:text-mithril hover:translate-x-2 block cursor-pointer" href="#scrolls" onClick={playClick}>SCROLLS</a>
                 </div>
               </div>
             </div>
             
-            <button className="hidden sm:flex px-6 py-2 sm:px-8 sm:py-3 bg-primary text-on-primary font-label-caps tracking-widest text-[10px] sm:text-xs hover:bg-primary-fixed transition-all shadow-[0_0_20px_rgba(242,202,80,0.2)] border border-primary/50 rounded-full"
+            <button className="hidden sm:flex px-6 py-2 md:px-6 md:py-2 bg-primary text-on-primary font-label-caps tracking-widest text-[9px] md:text-[10px] hover:bg-primary-fixed transition-all shadow-[0_0_20px_rgba(242,202,80,0.2)] border border-primary/50 rounded-full"
               onClick={playClick}>
               Hire Me
             </button>
@@ -131,20 +131,20 @@ function App() {
             />
           </div>
           
-          <p className="font-label-caps text-primary tracking-[0.4em] mb-8 md:mb-6 animate-pulse text-[10px] md:text-xs">ESTABLISHED MMXXIV</p>
-          <h1 className="font-display-lg text-4xl sm:text-6xl md:text-8xl text-primary mb-6 md:mb-4 drop-shadow-[0_0_20px_rgba(242,202,80,0.5)] leading-[1.1] md:leading-tight tracking-[0.1em] sm:tracking-[0.3em]">
+          <p className="font-label-caps text-primary tracking-[0.4em] mb-6 md:mb-4 animate-pulse text-[10px] md:text-xs">ESTABLISHED MMXXIV</p>
+          <h1 className="font-display-lg text-4xl sm:text-5xl md:text-7xl text-primary mb-4 md:mb-3 drop-shadow-[0_0_20px_rgba(242,202,80,0.5)] leading-[1.1] md:leading-tight tracking-[0.1em] sm:tracking-[0.2em] md:tracking-[0.3em]">
             MANOJ N.
           </h1>
-          <p className="font-headline-md text-mithril italic mb-10 md:mb-12 tracking-widest text-[11px] sm:text-sm md:text-xl px-4">
+          <p className="font-headline-md text-mithril italic mb-8 md:mb-10 tracking-widest text-[11px] sm:text-sm md:text-lg px-4">
             MASTER OF THE DIGITAL FORGE & FULL STACK ARCHITECT
           </p>
           
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 md:gap-8 px-4">
-            <a className="w-full sm:w-auto group relative px-8 md:px-12 py-4 md:py-6 bg-primary text-background font-display-lg tracking-[0.2em] overflow-hidden transition-all hover:scale-105 active:scale-95 shadow-[0_0_40px_rgba(242,202,80,0.4)] rounded-sm flex items-center justify-center gap-4" href="#journey" onClick={playClick}>
-              <img src="/sword_vertical.png" className="h-6 md:h-8 w-auto mix-blend-screen invert brightness-0" alt="sword icon" />
-              <span className="text-sm md:text-base">EXPLORE JOURNEY</span>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6 px-4">
+            <a className="w-full sm:w-auto group relative px-8 md:px-8 py-4 md:py-4 bg-primary text-background font-display-lg tracking-[0.2em] overflow-hidden transition-all hover:scale-105 active:scale-95 shadow-[0_0_40px_rgba(242,202,80,0.4)] rounded-sm flex items-center justify-center gap-3" href="#journey" onClick={playClick}>
+              <img src="/sword_vertical.png" className="h-5 md:h-6 w-auto mix-blend-screen invert brightness-0" alt="sword icon" />
+              <span className="text-sm md:text-sm">EXPLORE JOURNEY</span>
             </a>
-            <button className="w-full sm:w-auto px-8 md:px-10 py-4 md:py-5 border-2 border-mithril/30 text-mithril font-display-lg tracking-widest hover:border-primary hover:text-primary transition-all rounded-sm backdrop-blur-sm group overflow-hidden relative text-sm md:text-base" onClick={playClick}>
+            <button className="w-full sm:w-auto px-8 md:px-8 py-4 md:py-4 border-2 border-mithril/30 text-mithril font-display-lg tracking-widest hover:border-primary hover:text-primary transition-all rounded-sm backdrop-blur-sm group overflow-hidden relative text-sm md:text-sm" onClick={playClick}>
               <span className="relative z-10">DOWNLOAD SCROLL</span>
               <div className="absolute inset-0 bg-primary/5 translate-y-full group-hover:translate-y-0 transition-transform"></div>
             </button>
@@ -278,19 +278,19 @@ function App() {
               title="The Aether Link" 
               description="A real-time messaging nexus built with Elixir and Phoenix, capable of sustaining 500k concurrent ethereal connections."
               tags={['Phoenix', 'Websockets', 'Rust']}
-              image="/aether_link_project_1778702464308.png"
+              image="/aether_link.png"
             />
             <ArtifactCard 
               title="Mithril Vault" 
               description="A decentralized ledger of incredible security, encrypting transactional secrets using custom elliptic-curve runes."
               tags={['Solidity', 'Hardhat', 'React']}
-              image="/media__1778702089426.png"
+              image="/ring_inscription.png"
             />
             <ArtifactCard 
               title="Oracle Engine" 
               description="A predictive AI engine that foresees architectural bottlenecks before they manifest in the production realms."
               tags={['Python', 'PyTorch', 'FastAPI']}
-              image="/oracle_engine_project_1778703639790.png"
+              image="/oracle_engine.png"
             />
           </div>
         </div>
