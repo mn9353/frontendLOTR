@@ -15,7 +15,7 @@ export const ScrollForm = () => {
         transition={{ duration: 1.5, ease: "easeOut" }}
         className="scroll-container p-4 sm:p-8 md:p-24 relative shadow-[0_0_100px_rgba(0,0,0,0.6)] rounded-lg overflow-hidden border-[8px] md:border-[16px] border-[#2c1810]"
         style={{ 
-          background: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuD748yUNxkLsYtJ757_JDX3iRuu441fkmmqqJSB8WlSXMiTb7J3Rqe-wjZ_0LOKpM0uNMONrFNU4dsGUC94vePPQ1xdGKkPAuKEMoVgjY28crmde0lRd7tkgDOX2ARlv_2c0fRZsh1ydyB0kVKrx62OsEOJXTvZPwc6Wr4yj-7xSzg6aS97hdHJXU7DgKF-vlwzNXI1alyYBslM9Ddwc6bz-lg5uVzR3RgEwNgHyBhVRtvKoBGIukWW6yO81PVQcu--0Dfe2LoAA4P4')", 
+          background: "url('https://nhrwkotrxyczxdpkuney.supabase.co/storage/v1/object/public/portfolio_images/project_photos/137914-3840x2160-desktop-4k-the-lord-of-the-rings-wallpaper-photo.jpg')", 
           backgroundSize: 'cover', 
           backgroundPosition: 'center' 
         }}
@@ -23,10 +23,10 @@ export const ScrollForm = () => {
         <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px]"></div>
         
         {/* Corner Ornaments */}
-        <div className="absolute top-4 left-4 w-16 h-16 opacity-60 pointer-events-none z-10"><span className="material-symbols-outlined text-4xl text-primary drop-shadow-[0_0_10px_rgba(242,202,80,0.5)]">tempest</span></div>
-        <div className="absolute top-4 right-4 w-16 h-16 rotate-90 opacity-60 pointer-events-none z-10"><span className="material-symbols-outlined text-4xl text-primary drop-shadow-[0_0_10px_rgba(242,202,80,0.5)]">tempest</span></div>
-        <div className="absolute bottom-4 left-4 w-16 h-16 -rotate-90 opacity-60 pointer-events-none z-10"><span className="material-symbols-outlined text-4xl text-primary drop-shadow-[0_0_10px_rgba(242,202,80,0.5)]">tempest</span></div>
-        <div className="absolute bottom-4 right-4 w-16 h-16 rotate-180 opacity-60 pointer-events-none z-10"><span className="material-symbols-outlined text-4xl text-primary drop-shadow-[0_0_10px_rgba(242,202,80,0.5)]">tempest</span></div>
+        <div className="absolute top-4 left-4 w-16 h-16 opacity-60 pointer-events-none z-10"><span className="material-symbols-outlined text-4xl text-primary drop-shadow-[0_0_10px_rgba(242,202,80,0.5)]">auto_awesome</span></div>
+        <div className="absolute top-4 right-4 w-16 h-16 rotate-90 opacity-60 pointer-events-none z-10"><span className="material-symbols-outlined text-4xl text-primary drop-shadow-[0_0_10px_rgba(242,202,80,0.5)]">auto_awesome</span></div>
+        <div className="absolute bottom-4 left-4 w-16 h-16 -rotate-90 opacity-60 pointer-events-none z-10"><span className="material-symbols-outlined text-4xl text-primary drop-shadow-[0_0_10px_rgba(242,202,80,0.5)]">auto_awesome</span></div>
+        <div className="absolute bottom-4 right-4 w-16 h-16 rotate-180 opacity-60 pointer-events-none z-10"><span className="material-symbols-outlined text-4xl text-primary drop-shadow-[0_0_10px_rgba(242,202,80,0.5)]">auto_awesome</span></div>
         
         <div className="relative z-10">
           <motion.div 
