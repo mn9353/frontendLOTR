@@ -1,6 +1,7 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { useAudio } from '../hooks/useAudio';
+import { IMAGE_ASSETS } from '../constants/artifacts';
 
 export const ScrollForm = () => {
   const ref = useRef(null);
@@ -66,7 +67,7 @@ export const ScrollForm = () => {
                 <div className="absolute inset-0 bg-[#8b0000] rounded-full blur-xl opacity-40 group-hover:opacity-80 transition-opacity ring-pulse"></div>
                 <div className="relative w-48 h-48 bg-[#8b0000] rounded-full flex flex-col items-center justify-center border-[8px] border-[#a52a2a] shadow-[inset_0_0_40px_rgba(0,0,0,0.8),0_20px_40px_rgba(0,0,0,0.6)] group-active:scale-95 transition-transform overflow-hidden">
                   <div className="absolute inset-0 opacity-30 mix-blend-overlay bg-[url('https://www.transparenttextures.com/patterns/leather.png')]"></div>
-                  <img alt="The One Ring Seal" className="w-24 h-24 object-contain opacity-80 ring-pulse mb-2 mix-blend-screen invert brightness-125" src="/the_one_ring_hd_top.png"/>
+                  <img alt="The One Ring Seal" className="w-24 h-24 object-contain opacity-80 ring-pulse mb-2 mix-blend-screen invert brightness-125" src={IMAGE_ASSETS.ringSlant}/>
                   <span className="relative z-10 font-display-lg text-primary tracking-[0.2em] text-xs leading-none">SEND SCROLL</span>
                   <div className="absolute bottom-4 font-label-caps text-[8px] text-primary/40 tracking-[0.4em]">RED WAX SEAL</div>
                 </div>

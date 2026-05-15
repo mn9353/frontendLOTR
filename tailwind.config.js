@@ -78,6 +78,16 @@ export default {
           "headline-md": ["Cinzel", "serif"],
           "body-md": ["Inter", "sans-serif"],
           "label-caps": ["Montserrat", "sans-serif"]
+      },
+      "keyframes": {
+          "subtle-glow": {
+              "0%": { opacity: "0.08" },
+              "50%": { opacity: "0.15" },
+              "100%": { opacity: "0.08" }
+          }
+      },
+      "animation": {
+          "subtle-glow": "subtle-glow 8s ease-in-out infinite"
       }
     },
   },

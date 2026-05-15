@@ -1,4 +1,5 @@
 import { createContext, useContext, useState, useEffect, useCallback, useRef } from 'react';
+import { AUDIO_ASSETS } from '../constants/artifacts';
 
 interface AudioContextType {
   isMuted: boolean;
@@ -19,7 +20,7 @@ export const AudioProvider: React.FC<{ children: React.ReactNode }> = ({ childre
 
   useEffect(() => {
     // Preload sword sound immediately on mount
-    const swordAudio = new Audio('/sounds/sword-clash.mp3');
+    const swordAudio = new Audio(AUDIO_ASSETS.clickSound);
     swordAudio.preload = 'auto';
 
     return () => {
@@ -42,7 +43,7 @@ export const AudioProvider: React.FC<{ children: React.ReactNode }> = ({ childre
 
   useEffect(() => {
     if (bgAllowed && !bgMusicRef.current) {
-      bgMusicRef.current = new Audio('/sounds/shire-bg.mp3');
+      bgMusicRef.current = new Audio(AUDIO_ASSETS.backgroundMusic);
       bgMusicRef.current.loop = true;
       bgMusicRef.current.volume = 0.1; // Gentle background volume
     }
@@ -88,11 +89,16 @@ export const AudioProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   const playSound = useCallback((soundName: string, volume: number = 0.5) => {
     if (isMuted) return;
     try {
-      const audio = new Audio(`/sounds/${soundName}.mp3`);
+      let audioUrl = '';
+      if (soundName === 'sword-clash') audioUrl = AUDIO_ASSETS.clickSound;
+      else if (soundName === 'gondor-horn') audioUrl = AUDIO_ASSETS.submitSound;
+      else audioUrl = `${soundName}.mp3`;
+
+      const audio = new Audio(audioUrl);
       audio.volume = volume;
       activeSoundsRef.current.add(audio);
       audio.onended = () => activeSoundsRef.current.delete(audio);
-      
+
       const playPromise = audio.play();
       if (playPromise !== undefined) {
         playPromise.catch(() => activeSoundsRef.current.delete(audio));

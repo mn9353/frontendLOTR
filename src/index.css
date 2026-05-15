@@ -33,6 +33,15 @@
     overflow-x: hidden;
   }
 
+  /* Kill ALL cursors during the preloader — our Star of Fëanor takes over */
+  body.preloader-active,
+  body.preloader-active *,
+  body.preloader-active input,
+  body.preloader-active textarea,
+  body.preloader-active button {
+    cursor: none !important;
+  }
+
   body.wraith-world {
     background-color: #020617;
   }

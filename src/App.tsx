@@ -7,16 +7,17 @@ import { CustomCursor } from './components/CustomCursor';
 import { ArtifactCard } from './components/ArtifactCard';
 import { useAudio } from './hooks/useAudio';
 import { AudioToggle } from './components/AudioToggle';
+import { IMAGE_ASSETS } from './constants/artifacts';
 
 function App() {
   const [wraithMode, setWraithMode] = useState(false);
   const [loaded, setLoaded] = useState(false);
-  const { isMuted, toggleMute, playClick, allowBgMusic } = useAudio();
+  const { isMuted, toggleMute, playClick, playSubmit, allowBgMusic } = useAudio();
 
   // Allow Preloader to tell App it has finished so we can conditionally unmount it and start music
   const handlePreloaderComplete = () => {
     setLoaded(true);
-    playClick(); // Play the sword sound when the loader completes
+    playSubmit(); // Play the gondor horn sound when the loader completes
     allowBgMusic();
   };
 
@@ -44,35 +45,37 @@ function App() {
   return (
     <>
       {!loaded && <Preloader onComplete={handlePreloaderComplete} />}
-      <CustomCursor />
-      <AudioToggle isMuted={isMuted} toggleMute={toggleMute} />
+      <CustomCursor isLoader={!loaded} />
+      <AudioToggle isMuted={isMuted} toggleMute={toggleMute} isLoader={!loaded} />
       
       {/* Theme Changer (Wraith Mode) */}
-      <button 
-        onClick={() => { toggleWraithMode(); playClick(); }}
-        className="fixed bottom-6 left-6 z-[99999] p-3 rounded-full border bg-[#1a1a1a] backdrop-blur transition-transform hover:scale-110 active:scale-95"
-        style={{
-          boxShadow: wraithMode ? '0 0 20px rgba(255,255,255,0.6)' : '0 0 15px rgba(242,202,80,0.4)',
-          borderColor: wraithMode ? 'rgba(255,255,255,0.5)' : 'rgba(242,202,80,0.3)'
-        }}
-        title="Toggle Wraith Mode"
-      >
-        <img 
-          src="/the_one_ring_hd_top.png" 
-          alt="The One Ring Toggle" 
-          className="w-5 h-5 object-contain transition-all duration-700"
-          style={{ 
-            filter: wraithMode ? 'invert(1) brightness(2) grayscale(100%)' : 'invert(1) brightness(1.25)', 
-            transform: wraithMode ? 'rotate(180deg)' : 'none' 
+      {loaded && (
+        <button 
+          onClick={() => { toggleWraithMode(); playClick(); }}
+          className="fixed bottom-6 left-6 z-[99999] p-3 rounded-full border bg-[#1a1a1a] backdrop-blur transition-transform hover:scale-110 active:scale-95"
+          style={{
+            boxShadow: wraithMode ? '0 0 20px rgba(255,255,255,0.6)' : '0 0 15px rgba(242,202,80,0.4)',
+            borderColor: wraithMode ? 'rgba(255,255,255,0.5)' : 'rgba(242,202,80,0.3)'
           }}
-        />
-      </button>
+          title="Toggle Wraith Mode"
+        >
+          <img
+            src={IMAGE_ASSETS.ringSlant}
+            alt="The One Ring Toggle"
+            className="w-5 h-5 object-contain transition-all duration-700"
+            style={{
+              filter: wraithMode ? 'invert(1) brightness(2) grayscale(100%)' : 'invert(1) brightness(1.25)',
+              transform: wraithMode ? 'rotate(180deg)' : 'none'
+            }}
+          />
+        </button>
+      )}
 
       <WraithOverlay active={wraithMode} />
       <main className="bg-surface-dim min-h-screen text-on-surface selection:bg-primary/30 overflow-x-hidden relative">
       {/* Cinematic Ambient Background */}
       <div className="fixed inset-0 pointer-events-none z-0">
-        <div className="absolute inset-0 bg-[url('/middle_earth_map_1778702133925.png')] opacity-[0.07] bg-cover bg-center mix-blend-overlay opacity-0-in-wraith"></div>
+        <div className="absolute inset-0 bg-cover bg-center mix-blend-overlay opacity-0-in-wraith opacity-[0.07]" style={{backgroundImage: `url('${IMAGE_ASSETS.middleEarthMap}')`}}></div>
         <div className="absolute inset-0 bg-gradient-to-b from-surface-dim via-transparent to-surface-dim"></div>
       </div>
 
@@ -85,7 +88,7 @@ function App() {
           <div className="flex items-center gap-4 sm:gap-6">
             <div className="group relative">
               <button className="menu-trigger relative w-8 h-8 md:w-10 md:h-10 flex items-center justify-center transition-all duration-500">
-                <img alt="Menu" className="ring-image w-full h-full object-contain transition-all duration-700 ease-out group-hover:scale-110 group-hover:drop-shadow-[0_0_20px_#f2ca50] mix-blend-screen invert brightness-125" src="/the_one_ring_hd_top.png"/>
+                <img alt="Menu" className="ring-image w-full h-full object-contain transition-all duration-700 ease-out group-hover:scale-110 group-hover:drop-shadow-[0_0_20px_#f2ca50] mix-blend-screen invert brightness-125" src={IMAGE_ASSETS.ringSlant}/>
               </button>
               <div className="menu-content absolute top-full right-0 mt-2 sm:mt-4 w-56 sm:w-64 bg-surface-container-highest/95 backdrop-blur-xl border border-primary/30 p-6 shadow-[0_0_50px_rgba(0,0,0,0.5)] opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto z-[100] transition-all duration-300">
                 <div className="flex flex-col gap-4 relative z-[110] pointer-events-auto">
@@ -108,21 +111,21 @@ function App() {
 
       <header className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 md:pt-20 px-4" id="intro">
         <div className="absolute inset-0 z-0">
-          <img className="w-full h-full object-cover opacity-60 cinematic-mask opacity-0-in-wraith" src="/middle_earth_map.png"/>
+          <img className="w-full h-full object-cover opacity-60 cinematic-mask opacity-0-in-wraith" src={IMAGE_ASSETS.middleEarthMap}/>
           <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background/90"></div>
           <div className="absolute inset-0 mist-overlay"></div>
         </div>
         <div className="relative z-10 text-center w-full max-w-4xl px-4">
           {/* Floating Swords Decoration - Hidden on mobile */}
           <div className="absolute -left-64 top-1/2 -translate-y-1/2 hidden xl:block animate-floating-sword">
-            <img src="/sword_vertical.png" alt="Legendary Sword" className="h-[600px] w-auto opacity-40 mix-blend-screen invert" />
+            <img src={IMAGE_ASSETS.swordStraight} alt="Legendary Sword" className="h-[600px] w-auto opacity-40 mix-blend-screen invert" />
           </div>
           <div className="absolute -right-64 top-1/2 -translate-y-1/2 hidden xl:block animate-floating-sword" style={{ animationDelay: '2s' }}>
-            <img src="/sword_vertical.png" alt="Legendary Sword" className="h-[600px] w-auto opacity-40 mix-blend-screen invert scale-x-[-1]" />
+            <img src={IMAGE_ASSETS.swordStraight} alt="Legendary Sword" className="h-[600px] w-auto opacity-40 mix-blend-screen invert scale-x-[-1]" />
           </div>
 
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150%] md:w-[120%] aspect-square -z-10 opacity-[0.08] pointer-events-none animate-slow-spin">
-            <img alt="Decorative Ring Background" className="w-full h-full object-contain invert mix-blend-screen brightness-150" src="/the_one_ring_hd_side.png"/>
+            <img alt="Decorative Ring Background" className="w-full h-full object-contain invert mix-blend-screen brightness-150" src={IMAGE_ASSETS.ringFlat}/>
             <motion.img 
               src="/ring_inscription.png"
               animate={{ rotate: -360 }}
@@ -141,7 +144,7 @@ function App() {
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6 px-4">
             <a className="w-full sm:w-auto group relative px-8 md:px-8 py-4 md:py-4 bg-primary text-background font-display-lg tracking-[0.2em] overflow-hidden transition-all hover:scale-105 active:scale-95 shadow-[0_0_40px_rgba(242,202,80,0.4)] rounded-sm flex items-center justify-center gap-3" href="#journey" onClick={playClick}>
-              <img src="/sword_vertical.png" className="h-5 md:h-6 w-auto mix-blend-screen invert brightness-0" alt="sword icon" />
+              <img src={IMAGE_ASSETS.swordStraight} className="h-5 md:h-6 w-auto mix-blend-screen invert brightness-0" alt="sword icon" />
               <span className="text-sm md:text-sm">EXPLORE JOURNEY</span>
             </a>
             <button className="w-full sm:w-auto px-8 md:px-8 py-4 md:py-4 border-2 border-mithril/30 text-mithril font-display-lg tracking-widest hover:border-primary hover:text-primary transition-all rounded-sm backdrop-blur-sm group overflow-hidden relative text-sm md:text-sm" onClick={playClick}>
@@ -159,7 +162,7 @@ function App() {
 
       <div className="sword-divider relative z-10 my-12 md:my-24 flex items-center justify-center px-4">
         <div className="h-px flex-1 max-w-[200px] md:max-w-[300px] bg-gradient-to-r from-transparent via-primary/40 to-transparent"></div>
-        <img src="/sword_vertical.png" alt="Sword Divider" className="h-32 md:h-48 w-auto object-contain mx-4 md:mx-8 mix-blend-screen invert drop-shadow-[0_0_20px_rgba(242,202,80,0.4)]" />
+        <img src={IMAGE_ASSETS.swordStraight} alt="Sword Divider" className="h-32 md:h-48 w-auto object-contain mx-4 md:mx-8 mix-blend-screen invert drop-shadow-[0_0_20px_rgba(242,202,80,0.4)]" />
         <div className="h-px flex-1 max-w-[200px] md:max-w-[300px] bg-gradient-to-r from-transparent via-primary/40 to-transparent"></div>
       </div>
 
@@ -205,7 +208,7 @@ function App() {
               <div className="pl-8 sm:pl-12 md:pl-12 relative">
                 <div className="absolute -left-[14px] md:left-[-14px] top-0 transition-transform group-hover:scale-125 group-hover:rotate-12">
                   <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-surface-container-highest border border-primary/30 flex items-center justify-center relative z-10 shadow-[0_0_20px_rgba(242,202,80,0.2)]">
-                    <img src="/sword_vertical.png" className="w-6 h-6 md:w-8 md:h-8 object-contain mix-blend-screen invert" alt="battle icon" />
+                    <img src={IMAGE_ASSETS.swordStraight} className="w-6 h-6 md:w-8 md:h-8 object-contain mix-blend-screen invert" alt="battle icon" />
                   </div>
                 </div>
                 <div className="bg-surface-container-high dwarven-frame p-6 sm:p-8 hover:bg-surface-container-highest transition-all duration-500 glimmer-effect shadow-xl">

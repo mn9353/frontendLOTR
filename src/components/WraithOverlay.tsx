@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { IMAGE_ASSETS } from '../constants/artifacts';
 
 export const WraithOverlay = ({ active }: { active: boolean }) => {
   if (!active) return null;
@@ -64,8 +65,8 @@ export const WraithOverlay = ({ active }: { active: boolean }) => {
           className="absolute inset-0 w-full h-full object-contain invert mix-blend-screen opacity-20 brightness-150 hue-rotate-180"
         />
         
-        <img 
-          src="/the_one_ring_hd_top.png"
+        <img
+          src={IMAGE_ASSETS.ringSlant}
           alt="The One Ring"
           className="w-full h-full object-contain invert mix-blend-screen drop-shadow-[0_0_20px_#f2ca50] brightness-125 relative z-10"
         />
