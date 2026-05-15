@@ -1,6 +1,5 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { IMAGE_ASSETS } from '../constants/artifacts';
 
 export const Preloader = ({ onComplete }: { onComplete?: () => void }) => {
   const [loading, setLoading] = useState(true);
